@@ -7,7 +7,7 @@
     <title>Learning Vue</title>
 </head>
 <body>
-    <h1>Conditional Rendering</h1>
+    <h1>Other Mouse Events</h1>
 
     <div id="app">
         <div v-if="showBooks">
@@ -16,10 +16,11 @@
 
         <button @click="toggleShowBooks">
             <span v-if="showBooks">Hide Books</span>
-            <span v-if="!showBooks">Show Books</span>
+            <span v-else>Show Books</span>
         </button>
 
-        <div v-show="showBooks">Currently showing books</div>
+        <br>
+        <!-- mouse events -->
     </div>
 
     <script src="app.js"></script>
