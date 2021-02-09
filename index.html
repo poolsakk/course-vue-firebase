@@ -9,7 +9,13 @@
 <body>
     <h1>Methods & Click Events</h1>
 
-    <div id="app"></div>
+    <div id="app">
+        <p>{{ title }}</p>
+        <p>Age: {{ age }}</p>
+        <button v-on:click="age++">Increase Age</button>
+        <button v-on:click="age--">Decrease Age</button>
+        <div @click="changeTitle">Click Me</div>
+    </div>
 
     <script src="app.js"></script>
 </body>
