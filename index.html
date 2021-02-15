@@ -7,12 +7,13 @@
     <title>Learning Vue</title>
 </head>
 <body>
-    <h1>Outputting Lists</h1>
+    <h1>Attribute Binding</h1>
 
     <div id="app">
         <div v-if="showBooks">
             <ul>
                 <li v-for="item in books">
+                    <img :src="item.img" :alt="item.title">
                     <h3>{{ item.title }}</h3>
                     <p>{{ item.author }}</p>
                 </li>
