@@ -7,19 +7,22 @@
     <title>Learning Vue</title>
 </head>
 <body>
-    <h1>Conditional Rendering</h1>
+    <h1>Outputting Lists</h1>
 
     <div id="app">
         <div v-if="showBooks">
-            <p>{{ title }} - {{ author }} - {{ age }}</p>
+            <ul>
+                <li v-for="item in books">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.author }}</p>
+                </li>
+            </ul>
         </div>
 
         <button @click="toggleShowBooks">
             <span v-if="showBooks">Hide Books</span>
-            <span v-if="!showBooks">Show Books</span>
+            <span v-else>Show Books</span>
         </button>
-
-        <div v-show="showBooks">Currently showing books</div>
     </div>
 
     <script src="app.js"></script>
