@@ -12,6 +12,11 @@
           <option value="designer">Web Designer</option>
       </select>
 
+      <div class="terms">
+        <input type="checkbox" v-model="terms" required>
+        <label>Accept terms and conditions</label>
+      </div>
+
   </form>
   <p>Email: {{ email }}</p>
   <p>Password: {{ password }}</p>
