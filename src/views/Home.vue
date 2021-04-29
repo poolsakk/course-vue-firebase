@@ -1,41 +1,25 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <input type="text" v-model="search">
-    <p>Search term - {{ search }}</p>
-    <div v-for="name in matchingNames" :key="name">{{ name }}</div>
-    <button @click="handleClick">stop watching</button>
+    <PostList :posts="posts"/>
   </div>
 </template>
 
 <script>
 import { ref } from '@vue/reactivity'
 import { computed, watch, watchEffect } from '@vue/runtime-core'
+import PostList from '../components/PostList.vue'
 
 export default {
   name: 'Home',
+  components: { PostList },
   setup() {
-    const search = ref('')
-    const names = ref(['mario', 'yoshi', 'luigi', 'toad', 'bowser', 'koopa', 'peach'])
+    const posts = ref([
+      { title: 'welcome to the blog', body: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", id: 1 },
+      { title: 'top 5 CSS tips', body: 'lorem ipsum', id: 2 },
+    ])
 
-    const stopWatch = watch(search, () => {
-      console.log('watch function ran');
-    })
-
-    const stopEffect = watchEffect(() => {
-      console.log('watch effect function ran', search.value);
-    })
-
-    const matchingNames = computed(() => {
-      return names.value.filter((name) => name.includes(search.value))
-    })
-
-    const handleClick = () => {
-      stopWatch()
-      stopEffect()
-    }
-
-    return { names, search, matchingNames, handleClick }
+    return { posts }
   }
 }
 </script>
