@@ -17,6 +17,7 @@
 
 <script>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 export default {
   setup() {
@@ -24,6 +25,10 @@ export default {
     const body = ref('')
     const tag = ref('')
     const tags = ref([])
+
+    const router = useRouter()
+    // router.go(-1)
+    // router.go(1)
 
     const handleKeyDown = () => {
       if(!tags.value.includes(tag.value)) {
@@ -45,6 +50,8 @@ export default {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(post)
       })
+
+      router.push({ name: 'Home' })
     }
 
     return { title, body, tag, tags, handleKeyDown, handleSubmit }
