@@ -14,7 +14,7 @@ const getPost = (id) => {
         }
 
         post.value = { ...res.data(), id: res.id }
-        console.log(post.value);
+        // console.log(post.value);
       } catch (err) {
         error.value = err.message
         console.log(error.value);
