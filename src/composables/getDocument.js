@@ -8,7 +8,7 @@ const getDocument = (collection, id) => {
     // register the firestore collection reference
     let documentRef = projectFirestore.collection(collection).doc(id)
 
-    const unsub = documentRef.onSnapshot((snap) => {
+    const unsub = documentRef.onSnapshot((doc) => {
         if(doc.data()) {
             document.value = { ...doc.data(), id: doc.id }
             error.value = null
@@ -16,7 +16,8 @@ const getDocument = (collection, id) => {
             error.value = 'that document does not exists'
         }
     }, (err) => {
-        documents.value = null 
+        console.log(err.message);
+        document.value = null 
         error.value = 'could not fetch the document'
     })
 
