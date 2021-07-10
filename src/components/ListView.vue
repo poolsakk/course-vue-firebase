@@ -41,8 +41,8 @@ export default {
  }
 
  .thumbnail {
-     max-width: 100px;
-     max-height: 100px;
+     max-width: 170px;
+     max-height: 140px;
      overflow: hidden;
      border-radius: 10px;
  }
