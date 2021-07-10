@@ -24,7 +24,9 @@ export default {
         const fileError = ref(null)
 
         const handleSubmit = () => {
-
+            if(file.value) {
+                
+            }
         }
 
         // allowed file type
