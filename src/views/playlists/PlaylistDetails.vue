@@ -16,7 +16,7 @@
        <!-- song list -->
        <div class="song-list">
            <p>song list here</p>
-           <AddSong v-if="ownership" :playlists="playlist"/>
+           <AddSong v-if="ownership" :playlist="playlist"/>
        </div>
 
    </div>
